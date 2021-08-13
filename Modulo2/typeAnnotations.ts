@@ -163,8 +163,47 @@ if (typeof randomValue === "string") {
     console.log("Error - A string was expected here."); 
 }
 
-//MultiType
+//MultiType Tipos de uniao
 let multiType: number | boolean; 
 multiType = 20; 
 multiType = true; 
 //multiType = "string"; -> Não permitido 
+
+function add(x: number | string, y: number | string) { 
+    if (typeof x === 'number' && typeof y === 'number') { 
+        return x + y; 
+    }
+    if (typeof x === 'string' && typeof y === 'string') { 
+        return x.concat(y); 
+    }
+    throw new Error('Parameters must be numbers or strings');
+}
+console.log(add('one', 'two')); 
+console.log(add(1 , 2)); 
+//console.log(add(1, 'two')); -> dispara o erro
+
+//Intersecao de tipos
+interface Employee {
+    employeeID: number;
+    age: number; 
+}
+interface Manager { 
+    stockPlan: boolean; 
+}
+type ManagementEmployee = Employee & Manager; 
+let newManager: ManagementEmployee = { 
+    employeeID: 12345, 
+    age: 34, 
+    stockPlan: true
+}; 
+
+//Tipos Literais
+type testResult = "pass" | "fail" | "incomplete" | 1 | 2; 
+let myResult: testResult; 
+myResult = "pass";
+myResult = "fail"; 
+//myResult = "failure"; -> não funciona pois o tipo não foi definido.
+myResult = 1; 
+myResult = 2; 
+//myResult = 3;  -> não funciona pois o tipo não foi definido. 
+ 

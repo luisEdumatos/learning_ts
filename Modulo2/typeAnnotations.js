@@ -123,8 +123,31 @@ if (typeof randomValue === "string") {
 else {
     console.log("Error - A string was expected here.");
 }
-//MultiType
+//MultiType Tipos de uniao
 let multiType;
 multiType = 20;
 multiType = true;
 //multiType = "string"; -> Não permitido 
+function add(x, y) {
+    if (typeof x === 'number' && typeof y === 'number') {
+        return x + y;
+    }
+    if (typeof x === 'string' && typeof y === 'string') {
+        return x.concat(y);
+    }
+    throw new Error('Parameters must be numbers or strings');
+}
+console.log(add('one', 'two'));
+console.log(add(1, 2));
+let newManager = {
+    employeeID: 12345,
+    age: 34,
+    stockPlan: true
+};
+let myResult;
+myResult = "pass";
+myResult = "fail";
+//myResult = "failure"; -> não funciona pois o tipo não foi definido.
+myResult = 1;
+myResult = 2;
+//myResult = 3;  -> não funciona pois o tipo não foi definido. 
