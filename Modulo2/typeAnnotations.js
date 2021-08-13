@@ -113,3 +113,18 @@ valorVariavel = true;
 valorVariavel = 123;
 valorVariavel = 'Teste';
 valorVariavel = [];
+//Assercao de tipo
+let randomValue = 10;
+randomValue = true;
+randomValue = 'Mateo';
+if (typeof randomValue === "string") {
+    console.log(randomValue.toUpperCase());
+}
+else {
+    console.log("Error - A string was expected here.");
+}
+//MultiType
+let multiType;
+multiType = 20;
+multiType = true;
+//multiType = "string"; -> Não permitido 
