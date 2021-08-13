@@ -3,10 +3,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Car = void 0;
 class Car {
     constructor(make, color, doors) {
+        this._workstations = [];
         this._make = make;
         this._color = color;
         this._doors = doors;
         Car.numberOfCars++;
+    }
+    get workstations() {
+        return this._workstations;
+    }
+    addWorkstation(station) {
+        this._workstations.push(station);
+    }
+    removeWorkstation(station) {
+        let index = this._workstations.indexOf(station);
+        if (index > -1) {
+            this._workstations.splice(index, 1);
+        }
+        else {
+            console.log(`Workstation ${station} not exists. `);
+        }
     }
     get make() {
         return this._make;
