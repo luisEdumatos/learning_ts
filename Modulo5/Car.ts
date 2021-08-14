@@ -1,33 +1,14 @@
-import { Workstation } from './../ModeloStocktti/Workstation';
 export class Car { 
     private static numberOfCars: number = 0; 
     private _make: string; 
     private _color: string; 
     private _doors: number; 
-    private _workstations: Array<Workstation> = []; 
 
     constructor(make: string, color: string, doors: 4 | 2) {
         this._make = make; 
         this._color = color;
         this._doors = doors; 
         Car.numberOfCars++; 
-    }
-
-    public get workstations(){ 
-        return this._workstations; 
-    }
-
-    public addWorkstation(station: Workstation) { 
-        this._workstations.push(station); 
-    }
-    
-    public removeWorkstation(station: Workstation) { 
-        let index = this._workstations.indexOf(station); 
-        if (index > -1) { 
-            this._workstations.splice(index, 1);
-        } else {
-            console.log(`Workstation ${station} not exists. `); 
-        }
     }
 
     public get make() { 
@@ -66,7 +47,7 @@ export class Car {
         return `${this.worker()} is turning ${direction}`;
     } 
 
-    private worker(): string { 
+    protected worker(): string { 
         return this._make;
     }
 

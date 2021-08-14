@@ -1,5 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const classes_1 = require("./classes");
-let myCar1 = new classes_1.Car('Cool Car Company', 'blue', 4);
+const Car_1 = require("./Car");
+const EletricCar_1 = require("./EletricCar");
+let myCar1 = new Car_1.Car('Cool Car Company', 'blue', 4);
 console.log(myCar1);
+let myCarEletric = new EletricCar_1.EletricCar('Spark Motors', 'silver', 124, 2);
+console.log(myCarEletric);
+myCarEletric.charge();
+console.log(myCarEletric.brake());
