@@ -1,4 +1,4 @@
-export class Car { 
+export class Car implements Vehicle{ 
     private static numberOfCars: number = 0; 
     private _make: string; 
     private _color: string; 
